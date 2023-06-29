@@ -33,10 +33,10 @@ function App() {
 	async function getUser(username: any) {
 		const input = document.getElementById("search-input") as HTMLInputElement;
 
-		if (input.value === "") {
-			setError("Please enter a username");
+		if (username !== "button" && username.key !== "Enter") {
 			return;
-		} else if (username !== "button" && username.key !== "Enter") {
+		} else if (input.value === "") {
+			setError("Please enter a username");
 			return;
 		}
 
