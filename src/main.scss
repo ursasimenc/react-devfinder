@@ -1,0 +1,559 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+
+$darkDarkBlue: #141d2f;
+$darkLightBlue: #1e2a47;
+$darkWhite: #fefefe;
+$lightAliceBlue: #f6f8ff;
+$lightBlue: #4b6a9b;
+$lightDarkBlue: #2b3442;
+$lightLightUnsaturated: #697c9a;
+$lightWhitish: #fefefe;
+$primary: #0079ff;
+$hover: #60abff;
+$light-theme-hover: #222731;
+$dark-theme-hover: #90a4d4;
+$error: #f74646;
+$tablet: 750px;
+$mobile: 500px;
+
+@mixin flex($gap: 0px, $direction: row, $justify: center, $align: center) {
+	display: flex;
+	flex-direction: $direction;
+	justify-content: $justify;
+	align-items: $align;
+	gap: $gap;
+}
+
+@mixin size($width: auto, $height: auto) {
+	width: $width;
+	height: $height;
+}
+
+@mixin transition($property: all, $duration: 0.3s, $timing: ease-in-out) {
+	transition: $property $duration $timing;
+}
+
+@mixin h1($size: 26px) {
+	font-size: $size;
+	font-family: "Space Mono";
+	font-weight: 700;
+	font-style: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+@mixin h2($size: 22px) {
+	font-size: $size;
+	font-family: "Space Mono";
+	font-weight: 700;
+	font-style: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+@mixin h3($size: 16px) {
+	font-size: $size;
+	font-family: "Space Mono";
+	font-weight: 400;
+	font-style: normal;
+	text-decoration: none;
+	text-transform: none;
+	color: $primary;
+}
+
+@mixin h4($size: 13 px) {
+	font-size: $size;
+	font-family: "Space Mono";
+	font-weight: 400;
+	font-style: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+@mixin p($size: 15px) {
+	font-size: $size;
+	font-family: "Space Mono";
+	font-weight: 400;
+	font-style: normal;
+	line-height: 25px;
+	text-decoration: none;
+	text-transform: none;
+}
+
+@media (prefers-color-scheme: dark) {
+	body {
+		background-color: $darkDarkBlue;
+		color: $darkWhite;
+
+		input,
+		input::placeholder,
+		button {
+			color: $darkWhite;
+		}
+
+		.theme:hover {
+			color: $dark-theme-hover;
+
+			svg path {
+				fill: $dark-theme-hover;
+			}
+		}
+
+		.stats {
+			background-color: $darkDarkBlue;
+		}
+		.bio {
+			color: rgba($darkWhite, 0.75);
+		}
+
+		#search,
+		#result {
+			background-color: $darkLightBlue;
+		}
+
+		#date {
+			color: $darkWhite;
+		}
+	}
+}
+
+@media (prefers-color-scheme: light) {
+	body {
+		background-color: $lightAliceBlue;
+		color: $lightDarkBlue;
+
+		input,
+		input::placeholder {
+			color: $lightDarkBlue;
+		}
+
+		.theme {
+			color: $lightLightUnsaturated;
+
+			&:hover {
+				color: $light-theme-hover;
+
+				svg path {
+					fill: $light-theme-hover;
+				}
+			}
+		}
+
+		.stats {
+			background-color: $lightAliceBlue;
+		}
+		.bio {
+			color: rgba($lightBlue, 0.75);
+		}
+
+		button {
+			color: $lightWhitish;
+		}
+		#search,
+		#result {
+			background-color: $lightWhitish;
+			box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.2);
+		}
+
+		#date {
+			color: $lightLightUnsaturated;
+		}
+	}
+}
+
+.dark {
+	background-color: $darkDarkBlue;
+	color: $darkWhite;
+
+	input,
+	input::placeholder,
+	button {
+		color: $darkWhite;
+	}
+
+	.theme:hover {
+		color: $dark-theme-hover;
+
+		svg path {
+			fill: $dark-theme-hover;
+		}
+	}
+
+	.stats {
+		background-color: $darkDarkBlue;
+	}
+	.bio {
+		color: rgba($darkWhite, 0.75);
+	}
+
+	#search,
+	#result {
+		background-color: $darkLightBlue;
+	}
+
+	#date {
+		color: $darkWhite;
+	}
+}
+.light {
+	background-color: $lightAliceBlue;
+	color: $lightDarkBlue;
+
+	input,
+	input::placeholder {
+		color: $lightDarkBlue;
+	}
+
+	.theme {
+		color: $lightLightUnsaturated;
+
+		&:hover {
+			color: $light-theme-hover;
+
+			svg path {
+				fill: $light-theme-hover;
+			}
+		}
+	}
+
+	.stats {
+		background-color: $lightAliceBlue;
+	}
+	.bio {
+		color: rgba($lightBlue, 0.75);
+	}
+
+	button {
+		color: $lightWhitish;
+	}
+	#search,
+	#result {
+		background-color: $lightWhitish;
+		box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.2);
+	}
+
+	#date {
+		color: $lightLightUnsaturated;
+	}
+}
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Space Mono";
+	min-height: 100vh;
+	::selection {
+		background-color: $primary;
+		color: $lightWhitish;
+	}
+	@include flex();
+}
+
+main {
+	@include size(100%, 100%);
+	@include flex(2rem, column);
+
+	#header {
+		@include flex($justify: space-between);
+		@include size(100%, 38px);
+
+		.logo {
+			font-weight: 700;
+			font-size: 26px;
+		}
+
+		.theme {
+			@include flex(0.5rem);
+			text-transform: uppercase;
+			font-size: 13px;
+			font-weight: 700;
+			cursor: pointer;
+		}
+	}
+
+	#search {
+		@include flex($justify: start);
+		border-radius: 15px;
+		padding: 0.5rem;
+		position: relative;
+
+		div {
+			@include size(60px, 100%);
+			@include flex();
+		}
+
+		button {
+			@include size(106px, 50px);
+			border: none;
+			border-radius: 10px;
+			background-color: $primary;
+			cursor: pointer;
+			font-weight: 700;
+			font-family: "Space Mono";
+			margin-left: 0.75rem;
+			@include transition(background-color);
+
+			&:hover {
+				background-color: $hover;
+			}
+		}
+
+		input {
+			@include size(75%, 100%);
+			background-color: transparent;
+			border: none;
+			padding: 0.5rem;
+			font-family: "Space Mono";
+			caret-color: $primary;
+
+			&:focus {
+				outline: none;
+			}
+			&::-webkit-search-decoration,
+			&::-webkit-search-cancel-button,
+			&::-webkit-search-results-button,
+			&::-webkit-search-results-decoration {
+				display: none;
+			}
+		}
+
+		&:focus-within button {
+			background-color: $hover;
+		}
+
+		span {
+			@include p(0.8rem);
+			@include size(fit-content);
+			color: $error;
+			font-weight: 700;
+			position: absolute;
+			right: 128px;
+		}
+	}
+
+	#result {
+		padding: 48px;
+		border-radius: 10px;
+		display: grid;
+
+		.profile-pic {
+			@include flex($align: start);
+
+			img {
+				aspect-ratio: 1/1;
+				border-radius: 50%;
+			}
+		}
+
+		.profile-info {
+			@include flex(24px, column, start, start);
+
+			.bio {
+				@include p();
+			}
+
+			.stats {
+				@include flex($justify: space-between);
+				@include size(100%);
+				padding: 0.75rem 1.25rem;
+				border-radius: 10px;
+			}
+
+			.links {
+				@include size(100%);
+				display: grid;
+				gap: 1rem;
+
+				div {
+					@include flex(1rem, row, start, center);
+
+					.icon {
+						@include flex();
+						@include size(24px);
+						aspect-ratio: 1/1;
+					}
+				}
+
+				.not-available {
+					opacity: 0.75;
+				}
+			}
+		}
+	}
+}
+
+.loading {
+	opacity: 0;
+}
+
+@media (min-width: $tablet) {
+	#search {
+		@include size(730px, 69px);
+	}
+	#result {
+		@include size(730px, 394px);
+		grid-template-columns: 117px 1fr;
+		grid-template-rows: 80px 1fr;
+		gap: 0 48px;
+	}
+	.profile-pic {
+		img {
+			@include size(117px);
+		}
+	}
+
+	.basic-info {
+		@include flex($justify: space-between, $align: start);
+		@include size(100%);
+		#name {
+			.name {
+				@include h1();
+			}
+
+			.username {
+				@include h3();
+			}
+		}
+
+		#date {
+			@include p();
+		}
+	}
+
+	.profile-info {
+		@include size(100%);
+		grid-area: 2 / 2 / 3 / 3;
+
+		h2 {
+			@include h2();
+		}
+
+		h4 {
+			@include h4();
+		}
+
+		.links {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+}
+
+@media (min-width: $mobile) and (max-width: $tablet) {
+	#search {
+		@include size(90vw, 69px);
+	}
+	#result {
+		@include size(90vw, 455px);
+		grid-template-columns: 117px 1fr;
+		grid-template-rows: 117px 1fr;
+		gap: 24px 48px;
+	}
+
+	.profile-pic {
+		img {
+			@include size(117px);
+		}
+	}
+
+	.basic-info {
+		@include flex($justify: space-between, $align: start);
+		@include size(100%);
+		#name {
+			.name {
+				@include h1();
+			}
+
+			.username {
+				@include h3();
+			}
+		}
+
+		#date {
+			@include p();
+		}
+	}
+
+	.profile-info {
+		@include size(100%);
+		grid-area: 2 / 1 / 3 / 3;
+
+		.stats {
+			h2 {
+				@include h2();
+			}
+
+			h4 {
+				@include h4();
+			}
+		}
+
+		.links {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+}
+
+@media (max-width: $mobile) {
+	#search {
+		@include size(90vw, 69px);
+	}
+	#result {
+		@include size(90vw, 489px);
+		grid-template-columns: 75px 1fr;
+		grid-template-rows: 75px 1fr;
+		gap: 24px;
+	}
+
+	.profile-pic {
+		h1 {
+			@include h1(1.5rem);
+		}
+		img {
+			@include size(75px);
+		}
+	}
+
+	.basic-info {
+		@include flex($direction: column, $justify: start, $align: start);
+		@include size(100%);
+		#name {
+			.name {
+				@include h1(1.25rem);
+			}
+
+			.username {
+				@include h3();
+			}
+		}
+
+		#date {
+			@include p();
+		}
+	}
+
+	.profile-info {
+		@include size(100%, fit-content);
+		grid-area: 2 / 1 / 3 / 3;
+
+		.stats {
+			h2 {
+				@include h2(1.5rem);
+			}
+
+			h4 {
+				@include h4(0.75rem);
+			}
+		}
+
+		.links {
+			grid-template-rows: auto;
+			grid-template-columns: 1fr;
+		}
+	}
+}
