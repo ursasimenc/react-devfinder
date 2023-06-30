@@ -13,7 +13,7 @@ $hover: #60abff;
 $light-theme-hover: #222731;
 $dark-theme-hover: #90a4d4;
 $error: #f74646;
-$tablet: 750px;
+$tablet: 800px;
 $mobile: 500px;
 
 @mixin flex($gap: 0px, $direction: row, $justify: center, $align: center) {
@@ -87,7 +87,8 @@ $mobile: 500px;
 
 		input,
 		input::placeholder,
-		button {
+		button,
+		a {
 			color: $darkWhite;
 		}
 
@@ -139,6 +140,10 @@ $mobile: 500px;
 			}
 		}
 
+		a {
+			color: $lightBlue;
+		}
+
 		.stats {
 			background-color: $lightAliceBlue;
 		}
@@ -167,7 +172,8 @@ $mobile: 500px;
 
 	input,
 	input::placeholder,
-	button {
+	button,
+	a {
 		color: $darkWhite;
 	}
 
@@ -214,6 +220,10 @@ $mobile: 500px;
 				fill: $light-theme-hover;
 			}
 		}
+	}
+
+	a {
+		color: $lightBlue;
 	}
 
 	.stats {
@@ -378,10 +388,26 @@ main {
 						@include size(24px);
 						aspect-ratio: 1/1;
 					}
+
+					.links-text {
+						@include p(0.9rem);
+					}
+				}
+
+				a {
+					text-decoration: none;
+					&:hover {
+						text-decoration: underline;
+					}
 				}
 
 				.not-available {
 					opacity: 0.75;
+
+					a {
+						text-decoration: none;
+						cursor: not-allowed;
+					}
 				}
 			}
 		}

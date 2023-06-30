@@ -205,7 +205,9 @@ function App() {
 											</g>
 										</svg>
 									</div>
-									<div className="links-text">{website}</div>
+									<div className="links-text">
+										<a href={website}>{website}</a>
+									</div>
 								</div>
 								<div className={company === "Not available" ? "not-available" : "available"}>
 									<div className="icon">
