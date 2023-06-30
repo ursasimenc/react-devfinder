@@ -22,6 +22,7 @@ Users should be able to:
 
 ## Built with
 
+- [Typescript](https://www.typescriptlang.org/) - JS superset
 - [React](https://reactjs.org/) - JS library
 - [Sass](https://sass-lang.com/) - CSS preprocessor
 - [Octokit.js](https://github.com/octokit/octokit.js/) - API
