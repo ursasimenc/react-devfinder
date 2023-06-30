@@ -5,9 +5,9 @@ This is a solution to the [GitHub user search app challenge on Frontend Mentor](
 ## Table of contents
 
 - [The challenge](#the-challenge)
+- [Built with](#built-with)
 - [Screenshot](#screenshot)
 - [Links](#links)
-- [Built with](#built-with)
 
 ### The challenge
 
@@ -19,6 +19,12 @@ Users should be able to:
 - See relevant user information based on their search
 - Switch between light and dark themes
 - **Bonus**: Have the correct color scheme chosen for them based on their computer preferences.
+
+## Built with
+
+- [React](https://reactjs.org/) - JS library
+- [Sass](https://sass-lang.com/) - CSS preprocessor
+- [Octokit.js](https://github.com/octokit/octokit.js/) - API
 
 ## Screenshots
 
@@ -41,9 +47,3 @@ Mobile:
 
 - [GitHub Repo](https://github.com/ursasimenc/React-Devfinder)
 - [Demo](https://devfinder-us.netlify.app/)
-
-### Built with
-
-- [React](https://reactjs.org/) - JS library
-- [Sass](https://sass-lang.com/) - CSS preprocessor
-- [Octokit.js](https://github.com/octokit/octokit.js/) - API
